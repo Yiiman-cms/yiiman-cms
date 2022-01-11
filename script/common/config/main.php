@@ -90,7 +90,7 @@ return [
             'session'       => ['class'=>Session::class]
         ],
     'aliases'    => [
-        '@bower' => '@vendor/bower-asset',
+        '@bower' => '@vendor/yidas/yii2-bower-asset/bower',
         '@npm'   => '@vendor/npm-asset',
     ],
 ];
