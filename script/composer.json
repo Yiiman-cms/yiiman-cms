@@ -20,6 +20,7 @@
   "minimum-stability": "dev",
   "require": {
     "yiiman/yii-basics": "dev-main",
+    "fxp/composer-asset-plugin": "^1.4.0",
     "yiimaker/yii2-google-analytics": "*",
     "execut/yii2-robots-txt": "dev-master",
     "symfony/browser-kit": ">=2.7 <=4.2.4",
@@ -44,8 +45,7 @@
     "yiiman/functions": "dev-main",
     "yiiman/yii-lib-cookie": "dev-main",
     "insolita/yii2-migration-generator": "dev-master",
-    "yiiman/yii-module-user": "dev-main",
-    "yidas/yii2-bower-asset": "~2.0.5"
+    "yiiman/yii-module-user": "dev-main"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "*",
@@ -72,13 +72,17 @@
       "ext-libxml": "1.8.2"
     }
   },
-  "scripts": {
-    "post-package-install": [
-      "yidas\\yii2BowerAsset\\Installer::clone"
-    ],
-    "post-package-update": [
-      "yidas\\yii2BowerAsset\\Installer::clone"
-    ]
-  }
+  "extra": {
+    "asset-installer-paths": {
+      "npm-asset-library": "vendor/npm",
+      "bower-asset-library": "vendor/bower"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
 
 }
