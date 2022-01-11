@@ -1,0 +1,23 @@
+# ---> Yii
+.idea
+assets/*
+!assets/.gitignore
+protected/runtime/*
+!protected/runtime/.gitignore
+protected/data/*.db
+themes/classic/views/
+sessions/*
+!sessions/backend/.file
+
+sessions/frontend/*
+!sessions/frontend/.file
+public_html/assets/*
+public_html/theme/*
+public_html/upload/*
+public_html/*/assets/*
+public_html/*/debug
+public_html/info.php
+!public_html/admin/index.php
+public_html/debug
+script/.env
+script/*/runtime/*

@@ -1,0 +1,80 @@
+{
+  "name": "yiisoft/yii2-app-advanced",
+  "description": "Yii 2 Advanced Project Template",
+  "keywords": [
+    "yii2",
+    "framework",
+    "advanced",
+    "project template"
+  ],
+  "homepage": "http://www.yiiframework.com/",
+  "type": "project",
+  "license": "BSD-3-Clause",
+  "support": {
+    "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+    "forum": "http://www.yiiframework.com/forum/",
+    "wiki": "http://www.yiiframework.com/wiki/",
+    "irc": "irc://irc.freenode.net/yii",
+    "source": "https://github.com/yiisoft/yii2"
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "yiiman/yii-basics": "dev-main",
+    "yiimaker/yii2-google-analytics": "*",
+    "execut/yii2-robots-txt": "dev-master",
+    "symfony/browser-kit": ">=2.7 <=4.2.4",
+    "farsidesign/yii2-sbadminrtl": "dev-master",
+    "guzzle/guzzle": "~3.8",
+    "guzzlehttp/guzzle": "^6.0",
+    "kriswallsmith/buzz": "^0.16",
+    "consik/yii2-websocket": "^1.0",
+    "ezyang/htmlpurifier": "*",
+    "mohammad-mahdy/yii2-jdate": "*",
+    "faravaghi/yii2-jalali-daterangepicker": "*",
+    "ogheo/yii2-htmlcompress": "*",
+    "toin0u/digitalocean-v2": "^2.2",
+    "kartik-v/yii2-money": "*",
+    "kartik-v/yii2-field-range": "*",
+    "kartik-v/yii2-widget-datepicker": "@dev",
+    "mrclay/minify": "2.1.7",
+    "ext-dom": "*",
+    "ext-libxml": "*",
+    "ext-gd": "*",
+    "yiiman/yii-module-setting": "dev-main",
+    "yiiman/functions": "dev-main",
+    "yiiman/yii-lib-cookie": "dev-main",
+    "insolita/yii2-migration-generator": "dev-master",
+    "yiiman/yii-module-user": "dev-main"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "*",
+    "yiisoft/yii2-debug": "~2.0.0",
+    "yiisoft/yii2-gii": "~2.0.0",
+    "yiisoft/yii2-faker": "~2.0.0",
+    "codeception/base": "^2.2.3",
+    "codeception/verify": "~0.3.1"
+  },
+  "config": {
+    "process-timeout": 1800,
+    "fxp-asset": {
+      "enabled": false
+    },
+    "platform": {
+      "php": "7.2.14",
+      "ext-fileinfo": "1.0.5",
+      "ext-pdo": "7.2.14",
+      "ext-session": "7.2.14",
+      "ext-iconv": "7.2.14",
+      "ext-zip": "1.15.4",
+      "ext-dom": "1.8.2",
+      "ext-gd": "1.8.2",
+      "ext-libxml": "1.8.2"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}

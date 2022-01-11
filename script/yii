@@ -1,0 +1,63 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Yii console bootstrap file.
+ * @link      http://www.yiiframework.com/
+ * @copyright Copyright (c) 2008 Yii Software LLC
+ * @license   http://www.yiiframework.com/license/
+ */
+
+use yii\console\Controller;
+
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+
+$composerAutoload = [
+    __DIR__.'/vendor/autoload.php',
+    // in yii2-dev repo
+    __DIR__.'/../../autoload.php',
+    // installed as a composer binary
+];
+$vendorPath = null;
+foreach ($composerAutoload as $autoload) {
+    if (file_exists($autoload)) {
+        require $autoload;
+        $vendorPath = dirname($autoload);
+        break;
+    }
+}
+
+
+require '../script/vendor/autoload.php';
+require __DIR__.'/../script/vendor/yiisoft/yii2/Yii.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/../script');
+$dotenv->load();
+
+
+require realpath(__DIR__.'/common/system.php');
+
+require __DIR__.'/common/config/bootstrap.php';
+require __DIR__.'/frontend/config/bootstrap.php';
+include realpath(__DIR__.'/config.php');
+
+
+$front = require __DIR__.'/frontend/config/main.php';
+$back = require __DIR__.'/backend/config/main.php';
+$common = require __DIR__.'/common/config/main.php';
+
+$config = yii\helpers\ArrayHelper::merge(
+
+    require __DIR__.'/../script/common/config/main-local.php',
+
+    [
+        'id'                  => 'yii-console',
+        'basePath'            => __DIR__.'/console',
+        'controllerNamespace' => Controller::class,
+        'modules'             => array_merge_recursive($front['modules'], $back['modules'], $common['modules'])
+    ]
+);
+$application = new yii\console\Application($config);
+if ($vendorPath !== null) {
+    $application->setVendorPath($vendorPath);
+}
+$exitCode = $application->run();
+exit($exitCode);

@@ -1,0 +1,32 @@
+<?php 
+ return 
+[
+    "start"=> "start",
+    "New User"=> "New User",
+    "Add New User"=> "Add New User",
+    "Site Users"=> "Site Users",
+    "fullname"=> "fullname",
+    "email"=> "email",
+    "image"=> "image",
+    "status"=> "status",
+    "password"=> "password",
+    "mobile_verification_code"=> "mobile_verification_code",
+    "email_verification_hash"=> "email_verification_hash",
+    "verified_mobile"=> "verified_mobile",
+    "verified_email"=> "verified_email",
+    "user not verified email"=> "user not verified email",
+    "user not verified mobile"=> "user not verified mobile",
+    "mobile"=> "mobile",
+    "If Empty, Password Will Set To 123456"=> "If Empty, Password Will Set To 123456",
+    "credit"=> "credit",
+    "credit:"=> "credit:",
+    "Image"=> "Image",
+    "Status Users"=> "Status Users",
+    "Manage Users"=> "Manage Users",
+    "user index"=> "user index",
+    "add site user"=> "add site user",
+    "add another site user"=> "add another site user",
+    "Manage Users Index"=> "Manage Users Index",
+    "index"=> "index",
+    "hash"=> "hash"
+];
