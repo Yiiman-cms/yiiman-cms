@@ -20,12 +20,11 @@
   "minimum-stability": "dev",
   "require": {
     "yiiman/yii-basics": "dev-main",
-    "fxp/composer-asset-plugin": "^1.4.0",
+    "yidas/yii2-bower-asset": "~2.0.5",
     "yiimaker/yii2-google-analytics": "*",
     "execut/yii2-robots-txt": "dev-master",
     "symfony/browser-kit": ">=2.7 <=4.2.4",
     "farsidesign/yii2-sbadminrtl": "dev-master",
-    "guzzle/guzzle": "~3.8",
     "guzzlehttp/guzzle": "^6.0",
     "kriswallsmith/buzz": "^0.16",
     "consik/yii2-websocket": "^1.0",
@@ -77,6 +76,11 @@
       "npm-asset-library": "vendor/npm",
       "bower-asset-library": "vendor/bower"
     }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "php install"
+    ]
   },
   "repositories": [
     {
