@@ -17,7 +17,7 @@ use YiiMan\YiiBasics\widgets\profile\ProfileWidget;
 <div class="sidebar" data-active-color="rose" data-background-color="black"
      data-image="<?= $image ?>">
     <div class="sidebar-container">
-        <div class="logo"><a href="<?= $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] ?>"
+        <div class="logo"><a href="<?= $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'] ?>"
                              class="simple-text logo-mini">
 
             </a>
@@ -53,58 +53,63 @@ use YiiMan\YiiBasics\widgets\profile\ProfileWidget;
             </div>
 
             <?php
-            $forms = Form::find()->select(['id', 'title'])->asArray()->all();
+            $forms = Form::find()->select([
+                'id',
+                'title'
+            ])->asArray()->all();
             $formArray = [];
             if (!empty($forms)) {
                 foreach ($forms as $f) {
                     $formArray[] =
                         [
-                            'url' => '/form/form-inbox?formId=' . $f['id'],
-                            'label' => Yii::t('form', 'پیام های ورودی:') . $f['title'],
-                            'icon' => 'dashboard',
+                            'url'   => '/form/form-inbox?formId='.$f['id'],
+                            'label' => Yii::t('form', 'پیام های ورودی:').$f['title'],
+                            'icon'  => 'dashboard',
                         ];
                 }
             }
             $items = [
                 [
-                    'url' => '/',
+                    'url'   => '/',
                     'label' => Yii::t('menu', 'داشبرد'),
-                    'icon' => 'dashboard'
+                    'icon'  => 'dashboard'
                 ],
                 [
                     'label' => Yii::t('menu', 'وبلاگ'),
-                    'icon' => 'dashboard',
+                    'icon'  => 'dashboard',
                     'items' =>
                         [
                             [
-                                'url' => '/blog',
+                                'url'   => '/blog',
                                 'label' => Yii::t('menu', 'نوشته ها'),
-                                'icon' => 'dashboard',
+                                'icon'  => 'dashboard',
                             ],
                             [
-                                'url' => '/blog/blog-categories',
+                                'url'   => '/blog/blog-categories',
                                 'label' => Yii::t('menu', 'دسته ها'),
-                                'icon' => 'dashboard',
+                                'icon'  => 'dashboard',
                             ],
 
                             [
-                                'url' => '/blog/blog-comment',
+                                'url'   => '/blog/blog-comment',
                                 'label' => Yii::t('menu', 'دیدگاه ها'),
-                                'icon' => 'dashboard',
+                                'icon'  => 'dashboard',
                             ],
 
                         ]
                 ],
                 [
                     'label' => Yii::t('menu', 'فرم ها'),
-                    'icon' => 'dashboard',
+                    'icon'  => 'dashboard',
                     'items' =>
 
-                        \yii\helpers\ArrayHelper::merge([[
-                            'url' => '/form',
-                            'label' => Yii::t('menu', 'فرم ها'),
-                            'icon' => 'dashboard',
-                        ]], $formArray)
+                        \yii\helpers\ArrayHelper::merge([
+                            [
+                                'url'   => '/form',
+                                'label' => Yii::t('menu', 'فرم ها'),
+                                'icon'  => 'dashboard',
+                            ]
+                        ], $formArray)
                     ,
 
 
@@ -112,73 +117,101 @@ use YiiMan\YiiBasics\widgets\profile\ProfileWidget;
 
                 [
                     'label' => Yii::t('menu', 'سیستم'),
-                    'icon' => 'keyboard',
+                    'icon'  => 'keyboard',
                     'items' =>
                         [
                             [
-                                'url' => '/language',
+                                'url'   => '/language',
                                 'label' => Yii::t('menu', 'زبان'),
-                                'icon' => 'keyboard',
+                                'icon'  => 'keyboard',
                             ],
                             [
-                                'url' => '/menu',
+                                'url'   => '/menu',
                                 'label' => Yii::t('menu', 'منو'),
-                                'icon' => 'keyboard',
+                                'icon'  => 'keyboard',
                             ],
                             [
-                                'url' => '/seo',
+                                'url'   => '/seo',
                                 'label' => Yii::t('menu', 'سئو'),
-                                'icon' => 'keyboard'
+                                'icon'  => 'keyboard'
                             ],
                             [
-                                'url' => '/useradmin',
+                                'url'   => '/useradmin',
                                 'label' => Yii::t('menu', 'کاربران مدیر'),
-                                'icon' => 'keyboard'
+                                'icon'  => 'keyboard'
                             ],
                             [
-                                'url' => '/widget',
+                                'url'   => '/widget',
                                 'label' => Yii::t('menu', 'ویجت ها'),
-                                'icon' => 'keyboard'
+                                'icon'  => 'keyboard'
                             ],
                             [
-                                'url' => '/parameters',
+                                'url'   => '/parameters',
                                 'label' => \Yii::t('site', 'پارامتر ها'),
-                                'icon' => 'keyboard'
+                                'icon'  => 'keyboard'
+                            ],
+                            [
+                                'label' => \Yii::t('site', 'دسترسی ها'),
+                                'icon'  => 'keyboard',
+                                'items' =>
+                                    [
+                                        [
+                                            'url'   => '/rbac/permissions',
+                                            'label' => \Yii::t('site', 'دسترسی ها'),
+                                            'icon'  => 'keyboard'
+                                        ],
+                                        [
+                                            'url'   => '/rbac/assignment',
+                                            'label' => \Yii::t('site', 'تخصیص دسترسی'),
+                                            'icon'  => 'keyboard'
+                                        ],
+                                        [
+                                            'url'   => '/rbac/role',
+                                            'label' => \Yii::t('site', 'نقش'),
+                                            'icon'  => 'keyboard'
+                                        ],
+                                        [
+                                            'url'   => '/rbac/rule',
+                                            'label' => \Yii::t('site', '2نقش'),
+                                            'icon'  => 'keyboard'
+                                        ],
+
+                                    ]
                             ]
                         ]
                 ],
                 [
                     'label' => Yii::t('menu', 'صفحات'),
-                    'icon' => 'keyboard',
+                    'icon'  => 'keyboard',
                     'items' =>
                         [
                             [
-                                'url' => '/pages/default/create',
+                                'url'   => '/pages/default/create',
                                 'label' => Yii::t('menu', 'صفحه جدید'),
-                                'icon' => 'keyboard',
+                                'icon'  => 'keyboard',
                             ],
                             [
-                                'url' => '/pages',
+                                'url'   => '/pages',
                                 'label' => Yii::t('menu', 'همه ی صفحات'),
-                                'icon' => 'keyboard',
+                                'icon'  => 'keyboard',
                             ],
 
                         ]
                 ],
                 [
                     'label' => Yii::t('menu', 'فروشگاه'),
-                    'icon' => 'keyboard',
+                    'icon'  => 'keyboard',
                     'items' =>
                         [
                             [
-                                'url' => '/product/default',
+                                'url'   => '/product/default',
                                 'label' => Yii::t('menu', 'محصولات'),
-                                'icon' => 'keyboard',
+                                'icon'  => 'keyboard',
                             ],
                             [
-                                'url' => '/product/product-category',
+                                'url'   => '/product/product-category',
                                 'label' => Yii::t('menu', 'گروه محصولات'),
-                                'icon' => 'keyboard',
+                                'icon'  => 'keyboard',
                             ],
 
                         ]

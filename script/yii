@@ -27,9 +27,9 @@ foreach ($composerAutoload as $autoload) {
 }
 
 
-require '../script/vendor/autoload.php';
-require __DIR__.'/../script/vendor/yiisoft/yii2/Yii.php';
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/../script');
+require __DIR__.'/vendor/autoload.php';
+require __DIR__.'/vendor/yiisoft/yii2/Yii.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 
@@ -37,7 +37,6 @@ require realpath(__DIR__.'/common/system.php');
 
 require __DIR__.'/common/config/bootstrap.php';
 require __DIR__.'/frontend/config/bootstrap.php';
-include realpath(__DIR__.'/config.php');
 
 
 $front = require __DIR__.'/frontend/config/main.php';
@@ -46,13 +45,12 @@ $common = require __DIR__.'/common/config/main.php';
 
 $config = yii\helpers\ArrayHelper::merge(
 
-    require __DIR__.'/../script/common/config/main-local.php',
+    require __DIR__.'/common/config/main-local.php',
 
     [
         'id'                  => 'yii-console',
         'basePath'            => __DIR__.'/console',
         'controllerNamespace' => Controller::class,
-        'modules'             => array_merge_recursive($front['modules'], $back['modules'], $common['modules'])
     ]
 );
 $application = new yii\console\Application($config);

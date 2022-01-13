@@ -20,7 +20,7 @@ class SiteController extends Controller
 {
     public $enableCsrfValidation = false;
 
-
+    public $skipPermittions=['index'=>true];
 
     /**
      * Displays homepage.
